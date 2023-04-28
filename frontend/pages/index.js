@@ -16,6 +16,7 @@ export default function Home() {
   const [nftOwner, setNftOwner] = useState(false);
   const [cards, setCards] = useState([]);
   const [items, setItems] = useState([]);
+  const [inputData, setInputData] = useState({transferAddress: "",});
   //const astarId = "0x250";
   const shibuyaId = "0x51"
   const zeroAddress = "0x0000000000000000000000000000000000000000";
@@ -64,7 +65,7 @@ export default function Home() {
   };
 
   // メタマスク接続
-  const connectWallet = async () => {
+  const connectMetamask = async () => {
     try {
       const { ethereum } = window;
       const accounts = await ethereum.request({
@@ -97,6 +98,26 @@ export default function Home() {
       console.log(err);
     }
   };
+
+    // wallet接続（メタマスク以外）
+    const connectWallet = async (event) => {
+      event.preventDefault();
+      if (zeroAddress != inputData.transferAddress) {
+        try {
+          setAccount(inputData.transferAddress);
+          setChainId(true);
+          console.log(`account: ${inputData.transferAddress}`);
+  
+          checkNftCards(inputData.transferAddress);
+          checkNftShibuya(inputData.transferAddress);
+
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        alert("ゼロアドレス宛は指定できません")
+      }
+    };
 
   // 接続ネットワークチェック（ネットワーク切り替え時）
   const checkChainId = async () => {
@@ -152,6 +173,7 @@ export default function Home() {
     setNftOwner(false);
     setCards([]);
     setItems([]);
+    setInputData({transferAddress: "",});
   };
 
 
@@ -314,19 +336,42 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2 className={"text-6xl font-bold my-12 mt-8"}>
-        Wellcome to NFT NameCards Collection Site!
+        ログイン
       </h2>
       
       <div className={"flex mt-1"}>
         {account === "" ? (
-          <button
-            className={
-              "bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
-            }
-            onClick={connectWallet}
-          >
-            MetaMaskを接続してログイン（"Shibuya Testnet"）
-          </button>
+          <div>
+            <button
+              className={
+                "bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
+              }
+              onClick={connectMetamask}
+            >
+              MetaMaskを接続（"Shibuya Testnet"）
+            </button>
+
+            <p className={"flex justify-center text-2xl font-bold my-8 mt-8"}>または</p>
+
+            <form className="flex py-1 mb-1 bg-white border border-gray-400">
+                  <input
+                    type="text"
+                    className="w-10/12 ml-2 text-left border border-gray-400"
+                    name="transferAddress"
+                    placeholder={`ウォレットアドレスを入力してください`}
+                    onChange={handler}
+                    value={inputData.transferAddress}
+                  />
+                  <button
+                    className="w-4/16 mx-2 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+                    onClick={connectWallet}
+                  >
+                    submit
+                  </button>
+                </form>
+
+          </div>
+          
         ) : chainId ? (
           <div>
             <div className="px-2 py-2 mb-10 bg-white border border-gray-400">
