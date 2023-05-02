@@ -6,7 +6,7 @@ import { mintNFTAddress, tokenBankAddress, NFTNameCardsAddress, Web3NFTNameCards
 import mintNFT from "../contracts/mintNFT.json";
 import TokenBank from "../contracts/TokenBank.json";
 import NFTNameCards from "../contracts/NFTNameCards.json";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import * as Loader from "react-loader-spinner";
 
 
