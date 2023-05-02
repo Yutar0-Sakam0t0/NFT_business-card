@@ -7,7 +7,7 @@ import mintNFT from "../contracts/mintNFT.json";
 import TokenBank from "../contracts/TokenBank.json";
 import NFTNameCards from "../contracts/NFTNameCards.json";
 import { useRouter } from 'next/router'
-import { MagnifyingGlass } from 'react-loader-spinner'
+import * as Loader from "react-loader-spinner";
 
 
 export default function Home() {
@@ -382,7 +382,7 @@ export default function Home() {
             <p className={"flex justify-center text-2xl font-bold my-8 mt-8"}>
               ブロックチェーンからデータを取得しています...
             </p>
-            <MagnifyingGlass
+            <Loader.MagnifyingGlass
               visible={true}
               height="150"
               width="150"
