@@ -395,7 +395,7 @@ export default function Home() {
           </div>
 
         ): chainId ? (
-          <div className={"flex flex-col items-left justify-center"}>
+          <div className={"flex flex-col items-center justify-center"}>
             <h2 className={"text-6xl font-bold my-12 mt-8"}>
               ようこそ！
             </h2>
