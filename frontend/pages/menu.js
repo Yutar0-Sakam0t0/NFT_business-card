@@ -122,7 +122,7 @@ const mintEachNFT = async () => {
         Menu
       </h2>
       <div>
-        <p className="flex flex-col justify-center items-center mb-5 font-bold text-2xl gap-y-3">NFT名刺を集めてトロフィーを獲得しよう！</p>
+        <p className="flex flex-col justify-center items-center mx-2 mb-5 font-bold text-2xl gap-y-3">名刺を集めてNFTをGetしよう！</p>
         <p>・ 名刺 1 種 → ビギナー</p>
         <p>・ 名刺 3 種 → ブロンズ</p>
         <p>・ 名刺 5 種 → シルバー</p>
@@ -142,7 +142,7 @@ const mintEachNFT = async () => {
         </button>
       </div>
 
-      <div className={"flex mt-1"}>
+      <div className={"flex mt-1 flex flex-col items-center justify-center"}>
         {account === "" ? (
         <div></div>
 
@@ -151,11 +151,11 @@ const mintEachNFT = async () => {
 
             {nftOwner ? (
               <>   
-            <span className="flex flex-col items-left font-semibold">
+            <span className="flex flex-col items-center font-semibold">
               ＜獲得済NFT一覧＞
             </span>
                 {items.map((item, i) => (
-                  <div key={i} className="flex justify-left pl-1 py-2 mb-1">
+                  <div key={i} className="flex justify-center pl-1 py-2 mb-1">
                     <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
                         className=" w-full h-48 md:h-auto object-contain md:w-32 rounded-t-lg md:rounded-none md:rounded-l-lg"
