@@ -10,7 +10,6 @@ import { useRouter } from 'next/router'
 
 //loader
 import React from "react";
-import Loading from "./components/loading";
 //import { getAPI } from "../axiosGetAPI";
 
 
