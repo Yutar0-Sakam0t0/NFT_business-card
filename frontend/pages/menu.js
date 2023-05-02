@@ -106,8 +106,6 @@ const mintEachNFT = async () => {
   
 
 
-
-
   // ページ表示
   return (
     <div
@@ -197,7 +195,7 @@ const mintEachNFT = async () => {
           }
           onClick={() => router.push('/')}
         >
-          Back
+          戻る
         </button>
       </div>
 

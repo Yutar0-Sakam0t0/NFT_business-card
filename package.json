@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.0",
+    "react-loader-spinner": "^5.3.4",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4"
   }
