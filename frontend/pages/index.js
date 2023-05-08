@@ -383,8 +383,11 @@ export default function Home() {
           
         ): isLoading ? (
           <div className={"flex flex-col items-center justify-center bg-slate-100 text-blue-900"}>
-            <p className={"flex justify-center text-2xl font-bold my-8 mt-8"}>
-              ブロックチェーンからデータを取得中...
+            <p className={"flex justify-center text-2xl font-bold"}>
+              ブロックチェーンから
+            </p>
+            <p className={"flex justify-center text-2xl font-bold"}>
+              データを取得中...
             </p>
             <Loader.MagnifyingGlass
               visible={true}
@@ -408,8 +411,8 @@ export default function Home() {
             <h2 className={"text-6xl font-bold my-12 mt-8"}>
               ようこそ！
             </h2>
-            <div className="w-3/4 flex flex-col items-center justify-center px-2 py-2 mx-2 mb-10 bg-white border border-gray-400">
-              <p className="w-3/4 flex flex-col items-center justify-center font-semibold text-sm break-words">
+            <div className="w-7/8 flex flex-col items-center justify-center px-2 py-2 mx-2 mb-10 bg-white border border-gray-400">
+              <p className="flex flex-col items-center justify-center font-semibold text-xs break-words">
                 アドレス：{account}
               </p>
             </div>
@@ -427,7 +430,7 @@ export default function Home() {
                           alt=""
                         />
 
-                      <div className="p-6 flex flex-col justify-start">
+                      <div className="p-4 flex flex-col justify-start">
                         <h5 className="text-gray-900 text-xl font-medium mb-2">
                           {item.name}
                         </h5>
