@@ -408,6 +408,7 @@ export default function Home() {
 
         ): chainId ? (
           <div className={"flex flex-col items-center justify-center"}>
+            
             <h2 className={"text-6xl font-bold my-12 mt-8"}>
               ようこそ！
             </h2>
@@ -422,10 +423,10 @@ export default function Home() {
                 ＜保有名刺一覧＞
               </span>
                 {cards.map((item, i) => (
-                  <div key={i} className="flex justify-center px-1 py-2 mb-1">
+                  <div key={i} className="flex justify-center px-4 py-2 mb-1">
                     <div className="flex flex-col flex-row max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
-                        className=" w-full h-auto md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                        className=" w-auto h-auto md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                         src={item.imageURI}
                         alt=""
                       />
