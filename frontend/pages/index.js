@@ -8,7 +8,8 @@ import TokenBank from "../contracts/TokenBank.json";
 import NFTNameCards from "../contracts/NFTNameCards.json";
 import { useRouter } from "next/router";
 import * as Loader from "react-loader-spinner";
-
+import { Alchemy } from 'alchemy-sdk';
+//import { useMediaQuery } from 'react-responsive';
 
 export default function Home() {
   const [account, setAccount] = useState("");
@@ -19,11 +20,9 @@ export default function Home() {
   const [cards, setCards] = useState([]);
   const [items, setItems] = useState([]);
   const [inputData, setInputData] = useState({transferAddress: "",});
-
   const [ isLoading, setIsLoading ] = useState(false);
   const [ resData, setResData ] = useState(null);
-
-  //const astarId = "0x250";
+//const astarId = "0x250";
   const shibuyaId = "0x51"
   const zeroAddress = "0x0000000000000000000000000000000000000000";
 
@@ -146,7 +145,6 @@ export default function Home() {
     }
   };
 
-  
     // 接続ネットワークチェック（メニュー遷移時）
     const checkChainIdTestnet = async () => {
       const { ethereum } = window;
@@ -161,19 +159,19 @@ export default function Home() {
       sessionStorage.setItem('cards', JSON.stringify(cards));
       sessionStorage.setItem('items', JSON.stringify(items));
 
-      if (ethereum) {
-        const chain = await ethereum.request({
-          method: "eth_chainId",
-        });
-        console.log(`chain: ${chain}`);
+      // if (ethereum) {
+      //   const chain = await ethereum.request({
+      //     method: "eth_chainId",
+      //   });
+      //   console.log(`chain: ${chain}`);
   
-        if (chain != shibuyaId) {
-          alert("\"Shibuya Testnet\" に接続してください");
-          return;
-        } else {
-          router.push('/menu')
-        }
-      }
+      //   if (chain != shibuyaId) {
+      //     alert("\"Shibuya Testnet\" に接続してください");
+      //     return;
+      //   } else {
+      //     router.push('/menu')
+      //   }
+      // }
     };
 
   const checkAccountChanged = () => {
@@ -190,7 +188,11 @@ export default function Home() {
   const checkNftCards = async (addr) => {
     const { ethereum } = window;
     const provider = new ethers.providers.JsonRpcProvider("https://evm.astar.network");
-    //const provider = new ethers.providers.JsonRpcProvider("https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS");
+    // const settings = {
+    //   url: 'https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS'
+    // };
+    // const alchemy = new Alchemy(settings);
+    // const provider = await alchemy.config.getProvider();
     let typeBalance = 0;
     let web3TypeBalance = 0;
 
@@ -392,6 +394,11 @@ export default function Home() {
               glassColor = '#c0efff'
               color = '#e15b64'
             />
+            <p>
+            <img src="image/loading_IMG.png"
+                 alt="">
+            </img>
+            </p>
           </div>
 
         ): chainId ? (
