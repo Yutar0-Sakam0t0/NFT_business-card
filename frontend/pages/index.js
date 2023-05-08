@@ -400,7 +400,7 @@ export default function Home() {
               color = '#e15b64'
             />
             <p>
-            <img src="image/loading_IMG.png"
+            <img src="https://bafkreib5vh7uptplsfuk57mvk73kj4jdxrppksxrayal755tjydh3kvrui.ipfs.nftstorage.link/"
                  alt="">
             </img>
             </p>
