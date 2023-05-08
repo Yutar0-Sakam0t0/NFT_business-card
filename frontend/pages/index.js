@@ -159,6 +159,8 @@ export default function Home() {
       sessionStorage.setItem('cards', JSON.stringify(cards));
       sessionStorage.setItem('items', JSON.stringify(items));
 
+      router.push('/menu')
+
       // if (ethereum) {
       //   const chain = await ethereum.request({
       //     method: "eth_chainId",
