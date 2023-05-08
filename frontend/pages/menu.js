@@ -149,7 +149,7 @@ const mintEachNFT = async () => {
               ＜獲得済NFT一覧＞
             </span>
                 {items.map((item, i) => (
-                  <div key={i} className="flex justify-center px-4 py-2 mb-1">
+                  <div key={i} className="flex justify-center px-8 py-2 mb-1">
                     <div className="flex flex-col flex-row max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
                         className=" w-full h-24 md:h-auto object-contain md:w-32 rounded-t-lg md:rounded-none md:rounded-l-lg"
