@@ -345,15 +345,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className={"flex mt-1 flex flex-col items-center justify-center"}>
+      <div className={"flex flex flex-col items-center justify-center"}>
         {account === "" ? (
-          <div className={"flex flex-col items-center justify-center"}>
-            <h2 className={"text-6xl font-bold my-12 mt-8"}>
+          <div className={"flex flex-col items-center justify-center mb-12"}>
+            <h2 className={"text-6xl font-bold mb-10"}>
               ログイン
             </h2>
             <button
               className={
-                "bg-transparent text-blue-700 font-semibold py-2 px-3 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
+                "bg-transparent text-blue-700 font-semibold py-2 px-2 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
               }
               onClick={connectMetamask}
             >
@@ -365,14 +365,14 @@ export default function Home() {
             <form className="flex py-1 bg-white border border-gray-400">
                   <input
                     type="text"
-                    className="flex mx-4 px-1 text-left border border-gray-400"
+                    className="flex mx-3 px-1 text-left border border-gray-400"
                     name="transferAddress"
                     placeholder={`ウォレットアドレスを入力`}
                     onChange={handler}
                     value={inputData.transferAddress}
                   />
                   <button
-                    className="mr-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+                    className="mr-3 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
                     onClick={connectWallet}
                   >
                     submit
@@ -383,11 +383,11 @@ export default function Home() {
           
         ): isLoading ? (
           <div className={"flex flex-col items-center justify-center bg-slate-100 text-blue-900"}>
-            <p className={"flex justify-center text-2xl font-bold"}>
+            <p className={"flex justify-center text-2xl font-bold pt-8"}>
               ブロックチェーンから
             </p>
-            <p className={"flex justify-center text-2xl font-bold"}>
-              データを取得中...
+            <p className={"flex justify-center text-2xl font-bold pb-8"}>
+              データを取得しています...
             </p>
             <Loader.MagnifyingGlass
               visible={true}
@@ -400,19 +400,20 @@ export default function Home() {
               color = '#e15b64'
             />
             <p>
-            <img src="https://bafkreib5vh7uptplsfuk57mvk73kj4jdxrppksxrayal755tjydh3kvrui.ipfs.nftstorage.link/"
+            <img className="scale-75 object-contain"
+                 src="https://bafkreib5vh7uptplsfuk57mvk73kj4jdxrppksxrayal755tjydh3kvrui.ipfs.nftstorage.link/"
                  alt="">
             </img>
             </p>
           </div>
 
         ): chainId ? (
-          <div className={"flex flex-col items-left justify-center"}>
+          <div className={"flex flex-col md:items-left justify-center"}>
             
             <h2 className={"flex flex-col items-center justify-center text-6xl font-bold my-12 mt-8"}>
               ようこそ！
             </h2>
-            <div className="px-2 py-2 mx-32 mb-10 bg-white border border-gray-400">
+            <div className="flex flex-col items-center mx-12 p-1 mb-10 w-auto bg-white border border-gray-400">
               <p className="flex flex-col items-center font-semibold text-xs break-words">
                 アドレス：{account}
               </p>
@@ -423,7 +424,7 @@ export default function Home() {
                 ＜保有名刺一覧＞
               </span>
                 {cards.map((item, i) => (
-                  <div key={i} className="flex justify-left items-left px-32 py-2 mb-4">
+                  <div key={i} className="flex justify-left items-left py-2 mb-4 mx-12">
                     <div className="flex flex-col flex-row max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
                         className=" w-auto h-auto md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
@@ -431,7 +432,7 @@ export default function Home() {
                         alt=""
                       />
                       <div className="p-4 flex flex-col justify-start">
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">
+                        <h5 className="text-gray-900 text-lg font-medium mb-2">
                           {item.name}
                         </h5>
                         <p className="text-gray-700 text-base mb-4">
