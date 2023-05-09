@@ -152,11 +152,11 @@ const mintEachNFT = async () => {
                   <div key={i} className="flex justify-center px-8 py-2 mb-1">
                     <div className="flex flex-col flex-row max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
-                        className=" w-full h-24 md:h-auto object-contain md:w-32 rounded-t-lg md:rounded-none md:rounded-l-lg mt-6"
+                        className=" w-full h-24 md:h-auto object-contain md:w-32 rounded-t-lg md:rounded-none md:rounded-l-lg mt-2"
                         src={item.imageURI}
                         alt=""
                       />
-                      <div className="p-6 flex flex-col justify-start">
+                      <div className="p-2 flex flex-col justify-start">
                         <h5 className="text-gray-900 text-xl font-medium">
                           {item.name}
                         </h5>
