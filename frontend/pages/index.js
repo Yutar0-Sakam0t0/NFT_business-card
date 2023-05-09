@@ -407,12 +407,12 @@ export default function Home() {
           </div>
 
         ): chainId ? (
-          <div className={"flex flex-col items-left justify-left"}>
+          <div className={"flex flex-col items-left justify-center"}>
             
             <h2 className={"flex flex-col items-center justify-center text-6xl font-bold my-12 mt-8"}>
               ようこそ！
             </h2>
-            <div className="px-2 py-2 mx-10 mb-10 bg-white border border-gray-400">
+            <div className="px-2 py-2 mx-32 mb-10 bg-white border border-gray-400">
               <p className="flex flex-col items-center font-semibold text-xs break-words">
                 アドレス：{account}
               </p>
@@ -423,7 +423,7 @@ export default function Home() {
                 ＜保有名刺一覧＞
               </span>
                 {cards.map((item, i) => (
-                  <div key={i} className="flex justify-left items-left px-8 py-2 mb-4">
+                  <div key={i} className="flex justify-left items-left px-32 py-2 mb-4">
                     <div className="flex flex-col flex-row max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
                       <img
                         className=" w-auto h-auto md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
