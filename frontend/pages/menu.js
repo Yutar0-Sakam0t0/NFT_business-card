@@ -115,7 +115,7 @@ const mintEachNFT = async () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2 className={"text-6xl font-bold my-12 mt-8"}>
-        Menu
+        メニュー
       </h2>
       <div>
         <p className="flex flex-col justify-center items-center mx-2 mb-5 font-bold text-2xl gap-y-3">名刺を集めてNFTをGetしよう！</p>

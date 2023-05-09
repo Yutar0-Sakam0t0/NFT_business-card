@@ -391,8 +391,8 @@ export default function Home() {
             </p>
             <Loader.MagnifyingGlass
               visible={true}
-              height="150"
-              width="150"
+              height="100"
+              width="100"
               ariaLabel="MagnifyingGlass-loading"
               wrapperStyle={{}}
               wrapperClass="MagnifyingGlass-wrapper"
