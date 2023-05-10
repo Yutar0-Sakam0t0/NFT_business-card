@@ -9,7 +9,6 @@ import NFTNameCards from "../contracts/NFTNameCards.json";
 import { useRouter } from "next/router";
 import * as Loader from "react-loader-spinner";
 import { Alchemy } from 'alchemy-sdk';
-//import { useMediaQuery } from 'react-responsive';
 
 export default function Home() {
   const [account, setAccount] = useState("");
@@ -188,13 +187,16 @@ export default function Home() {
 
   // 所有NFT名刺情報取得
   const checkNftCards = async (addr) => {
-    const { ethereum } = window;
-    const provider = new ethers.providers.JsonRpcProvider("https://evm.astar.network");
+    //const { ethereum } = window;
+    const { ethers } = require("ethers");
+    const network = "mainnet";
+    //const provider = new ethers.providers.JsonRpcProvider("https://evm.astar.network");
+    const provider = new ethers.providers.JsonRpcProvider("https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS");
+    //const provider = new ethers.providers.AlchemyProvider(network, '5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS');
+    //const provider = new ethers.getDefaultProvider("astar", {alchemy: "5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS"});
     // const settings = {
     //   url: 'https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS'
     // };
-    // const alchemy = new Alchemy(settings);
-    // const provider = await alchemy.config.getProvider();
     let typeBalance = 0;
     let web3TypeBalance = 0;
 
@@ -204,15 +206,15 @@ export default function Home() {
         NFTNameCards.abi,
         provider
       );
-      const balance = await NFTNameCardsContract.balanceOf(addr);
+      const balance = await NFTNameCardsContract.balanceOf(addr, {gasLimit:50000});
       
       if(balance > 0) typeBalance ++;
 
       if (balance.toNumber() > 0) {
         setNftOwner(true);
         for (let j = 0; j < balance.toNumber(); j++) {
-          const tokenId = await NFTNameCardsContract.tokenOfOwnerByIndex(addr, j);
-          let tokenURI = await NFTNameCardsContract.tokenURI(tokenId);
+          const tokenId = await NFTNameCardsContract.tokenOfOwnerByIndex(addr, j, {gasLimit:50000});
+          let tokenURI = await NFTNameCardsContract.tokenURI(tokenId, {gasLimit:50000});
           tokenURI = tokenURI.replace("ar://", "https://arweave.net/");
           const meta = await axios.get(tokenURI);
           const name = meta.data.name;
@@ -244,15 +246,15 @@ export default function Home() {
         NFTNameCards.abi,
         provider
       );
-      const balance = await NFTNameCardsContract.balanceOf(addr);
+      const balance = await NFTNameCardsContract.balanceOf(addr, {gasLimit:50000});
       
       if(balance > 0) web3TypeBalance ++;
 
       if (balance.toNumber() > 0) {
         setNftOwner(true);
         for (let j = 0; j < balance.toNumber(); j++) {
-          const tokenId = await NFTNameCardsContract.tokenOfOwnerByIndex(addr, j);
-          let tokenURI = await NFTNameCardsContract.tokenURI(tokenId);
+          const tokenId = await NFTNameCardsContract.tokenOfOwnerByIndex(addr, j, {gasLimit:50000});
+          let tokenURI = await NFTNameCardsContract.tokenURI(tokenId, {gasLimit:50000});
           tokenURI = tokenURI.replace("ar://", "https://arweave.net/");
           const meta = await axios.get(tokenURI);
           const name = meta.data.name;
@@ -400,7 +402,7 @@ export default function Home() {
               color = '#e15b64'
             />
             <p>
-            <img className="scale-75 object-contain"
+            <img className="scale-75 md:scale-90 object-contain"
                  src="https://bafkreib5vh7uptplsfuk57mvk73kj4jdxrppksxrayal755tjydh3kvrui.ipfs.nftstorage.link/"
                  alt="">
             </img>
