@@ -64,8 +64,8 @@ const mintEachNFT = async () => {
 
     if (chain != shibuyaId) {
       alert("\"Shibuya Testnet\" に接続してください");
-      setChainId(false);
-      return;
+      // setChainId(false);
+      // return;
     } else {
       setChainId(true);
 

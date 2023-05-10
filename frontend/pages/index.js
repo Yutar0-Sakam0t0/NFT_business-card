@@ -88,7 +88,7 @@ export default function Home() {
         method: "eth_chainId",
       });
       
-      if (chain == shibuyaId) {
+
         setAccount(accounts[0]);
         setChainId(true);
         setIsLoading(true);
@@ -99,12 +99,25 @@ export default function Home() {
         checkNftCards(accounts[0]);
         checkNftShibuya(accounts[0]);
 
-      } else {
-        alert("\"Shibuya Testnet\" に接続してください");
-        setChainId(false);
-        console.log(`account: ${chain}`);
-        return;
-      }
+ 
+
+      // if (chain == shibuyaId) {
+      //   setAccount(accounts[0]);
+      //   setChainId(true);
+      //   setIsLoading(true);
+
+      //   console.log(`account: ${accounts[0]}`);
+      //   console.log(`chainId: ${chain}`);
+
+      //   checkNftCards(accounts[0]);
+      //   checkNftShibuya(accounts[0]);
+
+      // } else {
+      //   alert("\"Shibuya Testnet\" に接続してください");
+      //   setChainId(false);
+      //   console.log(`account: ${chain}`);
+      //   return;
+      // }
 
       ethereum.on("accountsChanged", checkAccountChanged);
       //ethereum.on("chainChanged", checkChainId);
@@ -366,11 +379,11 @@ export default function Home() {
             </h2>
             <button
               className={
-                "bg-transparent text-blue-700 font-semibold py-2 px-2 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
+                "bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded hover:border-transparent hover:text-white hover:bg-blue-500 hover:cursor-pointer"
               }
               onClick={connectMetamask}
             >
-              MetaMaskを接続（"Shibuya Testnet"）
+              MetaMaskを接続
             </button>
 
             <p className={"flex justify-center text-2xl font-bold my-8 mt-8"}>または</p>
