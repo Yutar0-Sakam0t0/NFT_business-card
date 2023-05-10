@@ -25,6 +25,15 @@ export default function Home() {
   const shibuyaId = "0x51"
   const zeroAddress = "0x0000000000000000000000000000000000000000";
 
+
+//   class StaticJsonRpcProvider extends JsonRpcProvider {
+//     async getNetwork(): Promise<Network> {
+//         if (this._network) { return Promise.resolve(this._network); }
+//         return super.getNetwork();
+//     }
+// }
+
+
 //　サイトアクセス時のデータ取得
   useEffect(() => {
     //checkMetaMaskInstalled();
@@ -98,7 +107,7 @@ export default function Home() {
       }
 
       ethereum.on("accountsChanged", checkAccountChanged);
-      ethereum.on("chainChanged", checkChainId);
+      //ethereum.on("chainChanged", checkChainId);
     } catch (err) {
       console.log(err);
     }
@@ -189,9 +198,11 @@ export default function Home() {
   const checkNftCards = async (addr) => {
     //const { ethereum } = window;
     const { ethers } = require("ethers");
-    const network = "mainnet";
-    //const provider = new ethers.providers.JsonRpcProvider("https://evm.astar.network");
-    const provider = new ethers.providers.JsonRpcProvider("https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS");
+    const network = 'https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS';
+    //const provider = new ethers.providers.JsonRpcProvider("https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS");
+    const provider = new ethers.providers.StaticJsonRpcProvider("https://astar-mainnet.g.alchemy.com/v2/5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS");
+
+    //const provider = ethers.getDefaultProvider(network, {alchemy: "5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS", chainId: 0x250});
     //const provider = new ethers.providers.AlchemyProvider(network, '5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS');
     //const provider = new ethers.getDefaultProvider("astar", {alchemy: "5orW7XuKiDWLHpMH7zV7sao4e7X3rSmS"});
     // const settings = {
