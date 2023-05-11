@@ -101,6 +101,8 @@ const mintEachNFT = async () => {
         alert("NFT名刺を所有していません！");
       }
     }
+  } else {
+    alert("MetaMaskをインストールしてください！");
   }
 };
   
